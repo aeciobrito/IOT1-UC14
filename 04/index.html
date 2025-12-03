@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>    
+
+</head>
+
+<body>
+    <h1>Aula Tabelas</h1>
+
+    <h2>Introdução às Tabelas em HTML</h2>
+
+    <p>
+        Tabelas são estruturas em HTML que permitem a organização
+        de dados em linhas e colunas. <br>
+        São comumnente utilizadas para exibir calendários, horários, listas de preços, etc.
+    </p>
+
+    <h2>Estrutura Básica de uma Tabela (tags)</h2>
+
+    <ul>
+        <li>table: Define o início e o fim da tablea</li>
+        <li>tr: Define uma linha na tabela</li>
+        <li>td: Define uma célula dentro de um alinha (dados)</li>
+        <li>th: Deifine uma célula de cabeçalho</li>
+    </ul>
+
+    <h2>Exemplo 1: Tabela Básica</h2>
+
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Profissão</th>
+        </tr>
+        <tr>
+            <td>Ana</td>
+            <td>28</td>
+            <td>Engenheira</td>
+        </tr>
+        <tr>
+            <td>Bruno</td>
+            <td>34</td>
+            <td>Médico</td>
+        </tr>
+    </table>
+
+    <h2>Mesclagem de Células</h2>
+
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Profissão</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Carlos</td>
+            <td>30</td>
+            <td colspan="2">Professor</td>
+        </tr>
+        <tr>
+            <td>Bruno</td>
+            <td>34</td>
+            <td rowspan="2">Médico</td>
+        </tr>
+         <tr>
+            <td>Ana</td>
+            <td>28</td>
+            <td>Engenheira</td>
+        </tr>
+    </table>
+    
+    <br>
+
+    <table border="1">
+        <tr>
+            <th colspan="3">2022</th>
+        </tr>
+        <tr>
+            <td>AAA</td>
+            <td>AAA</td>
+            <td>AAA</td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2">FIESTA</td>            
+            <td>AAA</td>
+        </tr>
+        <tr>
+            <td>AAA</td>
+        </tr>
+        <tr>
+            <td>AAA</td>
+            <td>AAA</td>
+            <td>AAA</td>
+        </tr>
+    </table>
+</body>
+
+</html>
