@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+
+<body>
+    <h1>Aula 05: Lógica e Console</h1>
+
+    <p>Pressione F12 e abra a aba "Console" para ver a execução do script!</p>
+
+    <script>
+        // console.log("Olá Mundo!");
+
+        // 1 - Entrada de dados
+        let temperatura = 24.5; // 'let' é para valores que podem mudar
+        const ID_SENSOR = "DHT11_SALA_01"; // 'const' é constante
+        let sistemaLigado = true; // booleano
+
+        // 2 - Saída de Dados (equivalente ao Serial.print)
+        console.log("--- INICIANDO SISTEMA IOT ---");
+        console.log("Sensor Conectado: " + ID_SENSOR);
+        console.log("Temepratura Inicial: ", temperatura);
+
+
+        // 3 - Condicionais (Idêntico ao C/Arduino)
+        function checarTemperatura() {
+            if (temperatura > 30) {
+                console.log("ALERTA: Temperatura Alta!");
+            } else if (temperatura < 10) {
+                console.log("ALERTA: Temperatura Baixa!");
+            } else {
+                console.log("STATUS: Temperatura Ideal.");
+            }
+        }
+
+        // 4 - Repetições (Muito parecido com o C/Arduino)
+        for (let cont = 0; cont <= 5; cont++) {
+            temperatura = temperatura + 1.5;
+            console.log("Leitura " + cont + ": " + temperatura + "ºC");
+            checarTemperatura();
+        }
+    </script>
+</body>
+
+</html>
