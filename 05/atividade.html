@@ -12,16 +12,52 @@
 
     <p>Pressione F12 e abra a aba "Console" para ver a execução do script!</p>
 
-    <script>
-        /* Crie um script que:
-        1 - Leia valores de umidade e pressão
-        2 - Verifique inicialmente se a umidade e pressão são ideais
-        3 - Valores referencia: umidade ideal > 30 e < 80, pressão ideal > 6 e < 10
-        4 - Altere os valores em loop da umidade para menos, de 2 em 2, 10 vezes
-        5 - Verifique novamente se a umidade e pressão são ideais
-        6 - Altere os valores em loop da pressão para mais, de 1 em 1, 6 vezes
-        7 - Verifique novamente se a umidade e pressão são ideais
-        */
+    <script>    
+
+        // 1 - Leia valores de umidade e pressão
+        let umidade = 40;
+        let pressao = 8;
+        const ID_SENSOR_UMIDADE = "UMD22_SALA_B1";
+        const ID_SENSOR_PRESSAO = "PRS99_SALA_B1";
+       
+        function checarUmidadeEPressao() {
+            if (umidade < 30) {
+                console.log("ALERTA: Umidade baixa detecatada no sensor " + ID_SENSOR_UMIDADE);
+            } else if (umidade > 80) {
+                console.log("ALERTA: Umidade alta detecatada no sensor " + ID_SENSOR_UMIDADE);
+            } else {
+                console.log("STATUS: Umidade ideal no sensor " + ID_SENSOR_UMIDADE);
+            }
+
+            if (pressao < 6) {
+                console.log("ALERTA: Pressão baixa detecatada no sensor " + ID_SENSOR_PRESSAO);
+            } else if (pressao > 10) {
+                console.log("ALERTA: Pressão alta detecatada no sensor " + ID_SENSOR_PRESSAO);
+            } else {
+                console.log("STATUS: Pressão ideal no sensor " + ID_SENSOR_PRESSAO);
+            }
+        }
+
+        // 2 - Verifique inicialmente se a umidade e pressão são ideais
+        checarUmidadeEPressao();
+
+        // 4 - Altere os valores em loop da umidade para menos, de 2 em 2, 10 vezes
+        for (let i = 0; i < 10; i++) {
+            umidade = umidade - 2;
+            console.log("Umidade alterada para: ", umidade);
+        }
+
+        // 5 - Verifique novamente se a umidade e pressão são ideais
+        checarUmidadeEPressao();
+
+        // 6 - Altere os valores em loop da pressão para mais, de 1 em 1, 6 vezes
+        for (let i = 0; i < 6; i++) {
+            pressao++;
+            console.log("Pressão alterada para: ", pressao);
+        }
+
+        // 7 - Verifique novamente se a umidade e pressão são ideais
+        checarUmidadeEPressao();
     </script>
 </body>
 
