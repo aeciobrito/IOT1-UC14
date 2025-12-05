@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <h1>Aula 05: Lógica e Console</h1>
+    <h1 id="TITULO">Aula 05: Lógica e Console</h1>
 
     <p>Pressione F12 e abra a aba "Console" para ver a execução do script!</p>
 
     <script>    
-
+        let tituloOriginal = document.getElementById('TITULO').textContent; // leitura
+        tituloOriginal += " Olá Turma!"; // escrita
+        document.getElementById('TITULO').innerText = tituloOriginal;
         // 1 - Leia valores de umidade e pressão
         let umidade = 40;
         let pressao = 8;

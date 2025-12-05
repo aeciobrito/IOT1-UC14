@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterações</title>
+</head>
+<body>
+    <h1>Controle de Termostato</h1>
+    <hr>
+
+    <label>Defina a temperatura atual do sensor:</label>
+    <input id="inputTemperatura" type="number" placeholder="Ex: 25">
+
+    <br><br>
+
+    <button onclick="verificarTermostato()">Verificar Status</button>
+
+    <h3>Estado do Sistema</h3>
+    <p>Ação do Relé: <strong id="resultado">Agurdando leitura...</strong> </p>
+
+    <script>
+
+        function verificarTermostato() {
+            // 1. ENTRADA: Buscar o elemento e pegar o seu VALOR (.value)
+            let tempInformada = Number(document.getElementById('inputTemperatura').value);
+            let acao = "";
+
+            if(tempInformada >= 29) {
+                acao = "LIGAR RESFRIAMENTO"
+            } else if (tempInformada <= 18) {
+                acao = "LIGAR AQUECIMENTO"
+            } else {
+                acao = "DESLIGAR TUDO!"
+            }
+
+            document.getElementById("resultado").innerText = acao;
+        }
+
+    </script>
+</body>
+</html>

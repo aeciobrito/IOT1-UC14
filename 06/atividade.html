@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ligar Bomba!</title>
+</head>
+<body>    
+    <button onclick="ligarBomba()">Ligar Bomba</button>
+    <button onclick="desligarBomba()">Desligar Bomba</button>
+
+    <p id="textoBomba"></p>
+
+    <script>
+        /*
+        Adicione um botão HTML chamado "Ligar Bomba"
+        Crie uma função "ligarBomba()" que,
+        ao ser clicada, mude o texto de um parágrafo para "Bomba: LIGADA"
+
+        Crie um botão "Desligar" que faz o inverso.
+        */
+
+        function ligarBomba() {
+            document.getElementById("textoBomba").innerText = "Bomba: LIGADA"
+        }
+
+        function desligarBomba() {
+            document.getElementById("textoBomba").innerText = "Bomba: DESLIGADA"
+        }
+    </script>
+</body>
+</html>
