@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API IoT</title>
+
+    <style>
+        /* ====== ESTILO GERAL ====== */
+body {
+    margin: 0;
+    font-family: "Roboto", Arial, sans-serif;
+    background: #eef2f5;
+    color: #333;
+    padding: 20px;
+}
+
+/* ====== TÍTULOS ====== */
+h1, h3 {
+    color: #1e88e5; /* Azul estilo Home Assistant */
+    font-weight: 500;
+}
+
+/* ====== CARDS ====== */
+.card {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* ====== LABELS E INPUTS ====== */
+label {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input[type="number"] {
+    width: 120px;
+    padding: 10px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #1e88e5;
+    box-shadow: 0 0 3px rgba(30,136,229,0.4);
+}
+
+/* ====== BOTÃO ====== */
+button {
+    background: #1e88e5;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1565c0;
+}
+
+/* ====== TEXTO DE STATUS ====== */
+strong {
+    color: #1e88e5;
+}
+
+#acao {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ====== DIVISOR ====== */
+hr {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin: 30px 0;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Montiroamento Remoto (Clima)</h1>
+    <p>Simulando a leitura de um sensor externo via internet.</p>
+
+    <label>Temperatura no Ar Condicionado (ºC):</label>
+    <input type="number" id="tempAr">
+    <br><br>
+
+    <button onclick="lerSensor()">Atualizar Dados</button>
+
+    <h3>Monitoramento Externo</h3>
+    <p>Temperatura: <strong id="tempDisplay">Aguardando leitura...</strong></p>
+    <p>Velocidade do Vento: <strong id="ventDisplay">Aguardando leitura...</strong></p>
+
+    <hr>
+
+    <h3>Ação do Sistema:</h3>
+    <p id="acao">Aguradando leitura...</p>
+
+    <script>
+        const URL_SENSOR = "https://api.open-meteo.com/v1/forecast?latitude=-23.526&longitude=-46.690&current_weather=true"
+
+        async function lerSensor() {
+            document.getElementById("tempDisplay").innerText = "Lendo...";
+            document.getElementById("ventDisplay").innerText = "Lendo...";
+
+            //LEITURA: Conecta ao site do URL_SENSOR para receber os dados com o fetch
+            let resposta = await fetch(URL_SENSOR);
+            let dados = await resposta.json();
+
+            //PROCESSAMENTO: Manipula o objeto JSON para extrair os dados que queremos
+            let temperatura = dados.current_weather.temperature;
+            let vento = dados.current_weather.windspeed;
+
+            //SAÍDA: Exibe os dados em elementos HTML
+            document.getElementById("tempDisplay").innerText = temperatura + " ºC";
+            document.getElementById("ventDisplay").innerText = vento + " Km/h";
+
+            let leituraArCondicionado = Number(document.getElementById("tempAr").value);
+            
+            // Crie um offset para desligar quando a diferença for 2
+            if(leituraArCondicionado + 2 < Number(temperatura)) {
+                document.getElementById("acao").innerText = "Mantém!";
+            } else {
+                document.getElementById("acao").innerText = "Desliga!";
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
