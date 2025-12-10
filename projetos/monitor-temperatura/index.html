@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard IoT</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            /* border: 2px solid gray; */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            padding: 20px;
+
+            width: 100%;
+            max-width: 300px;
+            align-items: center;
+        }
+
+        .card-img {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        input {
+            background-color: #b7d8ee;
+            padding: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            width: 20%;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #053759;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #1a5276;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 style="text-align: center; color: #333;">Monitoramento Remoto</h1>
+
+    <!--CARD 1: Controle do Ar Condicionado-->
+    <div class="card">
+        <img class="card-img" src="./img/image.png" alt="Ar Condicionado">
+
+        <h3>Controle AC</h3>
+        <label>Temperatura (ºC)</label>
+        <input type="number">
+        <button>Atualalizar e Decidir</button>
+    </div>
+
+    <!--CARD 2: Temperatura Externa-->
+    <div class="card">
+
+    </div>
+
+    <!--CARD 3: Vento Externo-->
+    <div class="card">
+
+    </div>
+
+    <!--CARD 1: Status Geral do Sistema-->
+    <div class="card">
+
+    </div>
+</body>
+
+</html>
